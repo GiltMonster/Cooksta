@@ -1,10 +1,10 @@
-import { Text, View } from "react-native";
-import { styles } from "../style/headBar";
+import { SafeAreaView} from "react-native";
+import HeadBar from "../components/HeadBar";
 
 export default function Home() {
-    return (
-        <View>
-            <Text>teste</Text>
-        </View>
-    );
+  return (
+    <SafeAreaView>
+      <HeadBar />
+    </SafeAreaView>
+  );
 }
