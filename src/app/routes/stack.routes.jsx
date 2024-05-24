@@ -1,20 +1,26 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "../screens/Home"
+/* ---------------------------------- Libs ---------------------------------- */
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+/* ---------------------------------- Pages --------------------------------- */
+import Timeline from "../screens/Timeline"
+import MyPages from "../screens/MyPages";
+import RankUp from "../screens/RankUp";
 
-const { Screen, Navigator } = createNativeStackNavigator();
+/* ------------------------------- Components ------------------------------- */
+import MyTabBar from '../components/header/MyTabBar';
 
-export default function StackRoutes () {
+const { Screen, Navigator } = createMaterialTopTabNavigator();
+
+export default function StackRoutes() {
     return (
-        <Navigator initialRouteName='home' screenOptions={{
-            headerStyle: {
-                backgroundColor: '#F6B5D2',
-            },
-            headerTintColor: '#fafafa',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            }
+        <Navigator initialRouteName={'Timeline'} tabBar={props => <MyTabBar {...props} />} screenOptions={{
+            tabBarLabelStyle: { fontSize: 22 },
+            tabBarItemStyle: { width: 100 },
+            tabBarStyle: { backgroundColor: 'powderblue' },
         }}>
-            <Screen name="Home" component={Home} />
+            <Screen name="Timeline" component={Timeline} />
+            <Screen name="Rank Up" component={RankUp} />
+            <Screen name="My Page" component={MyPages} />
         </Navigator>
     );
 }
+
